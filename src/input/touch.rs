@@ -32,7 +32,7 @@ impl TouchEventListener {
     /// Construct a new `TouchEventListener` by opening the event stream
     pub fn open() -> std::io::Result<Self> {
         // Open the touch device
-        let file = File::open("/dev/input/event0")?;
+        let file = File::open("/dev/input/event1")?;
         let device = Device::new_from_file(file)?;
 
         Ok(Self { device })
