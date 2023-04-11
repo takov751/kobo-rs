@@ -85,15 +85,18 @@ impl TouchEventListener {
                         // Note:
                         // X and Y are swapped from the event stream
                         // X is also inverted
-                        evdev_rs::enums::EV_ABS::ABS_X => {
+                        //ABS_MT_POSITION_X
+                        53 => {
                             y = Some(event.value);
                             println!("{}", y.unwrap());
                         }
-                        evdev_rs::enums::EV_ABS::ABS_Y => {
+                        //ABS_MT_POSITION_Y
+                        54 => {
                             x = Some(screen_size.x - event.value);
                             println!("{}", x.unwrap());
                         }
-                        evdev_rs::enums::EV_ABS::ABS_PRESSURE => {
+                        //ABS_MT_PRESSURE
+                        58 => {
                             pressure = Some(event.value);
                             println!("{}", pressure.unwrap());
                         }
