@@ -106,7 +106,7 @@ impl TouchEventListener {
             // Check if we have all the data
             if x.is_some() && y.is_some() && pressure.is_some() {
                 // Return the touch event
-                println!("x:{} y:{} t: {}", x.unwrap(),y.unwrap(),pressure.unwrap();
+                println!("x:{} y:{} t: {}", x.unwrap(),y.unwrap(),pressure.unwrap());
                 return Some(Touch {
                     position: PixelSpaceCoord::new(x.unwrap(), y.unwrap()),
                     pressure: pressure.unwrap(),
