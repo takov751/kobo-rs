@@ -87,12 +87,15 @@ impl TouchEventListener {
                         // X is also inverted
                         evdev_rs::enums::EV_ABS::ABS_X => {
                             y = Some(event.value);
+                            println!("{}", y.unwrap());
                         }
                         evdev_rs::enums::EV_ABS::ABS_Y => {
                             x = Some(screen_size.x - event.value);
+                            println!("{}", x.unwrap());
                         }
                         evdev_rs::enums::EV_ABS::ABS_PRESSURE => {
                             pressure = Some(event.value);
+                            println!("{}", pressure.unwrap());
                         }
                         _ => {}
                     },
@@ -103,6 +106,7 @@ impl TouchEventListener {
             // Check if we have all the data
             if x.is_some() && y.is_some() && pressure.is_some() {
                 // Return the touch event
+                println!("x:{} y:{} t: {}", x.unwrap(),y.unwrap(),pressure.unwrap();
                 return Some(Touch {
                     position: PixelSpaceCoord::new(x.unwrap(), y.unwrap()),
                     pressure: pressure.unwrap(),
